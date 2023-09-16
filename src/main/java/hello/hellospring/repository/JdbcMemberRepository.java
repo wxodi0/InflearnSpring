@@ -9,8 +9,7 @@ import java.util.Optional;
 public class JdbcMemberRepository implements MemberRepository {
     private final DataSource dataSource;
     public JdbcMemberRepository(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+        this.dataSource = dataSource; }
     @Override
     public Member save(Member member) {
         String sql = "insert into member(name) values(?)";
@@ -40,8 +39,7 @@ public class JdbcMemberRepository implements MemberRepository {
     public Optional<Member> findById(Long id) {
         String sql = "select * from member where id = ?";
         Connection conn = null;
-        PreparedStatement pstmt = null;
-        ResultSet rs = null;
+        PreparedStatement pstmt = null; ResultSet rs = null;
         try {
             conn = getConnection();
             pstmt = conn.prepareStatement(sql);
@@ -70,8 +68,7 @@ public class JdbcMemberRepository implements MemberRepository {
         try {
             conn = getConnection();
             pstmt = conn.prepareStatement(sql);
-            rs = pstmt.executeQuery();
-            List<Member> members = new ArrayList<>();
+            rs = pstmt.executeQuery(); List<Member> members = new ArrayList<>();
             while(rs.next()) {
                 Member member = new Member();
                 member.setId(rs.getLong("id"));
@@ -101,8 +98,7 @@ public class JdbcMemberRepository implements MemberRepository {
                 member.setId(rs.getLong("id"));
                 member.setName(rs.getString("name"));
                 return Optional.of(member);
-            }
-            return Optional.empty();
+            } return Optional.empty();
         } catch (Exception e) {
             throw new IllegalStateException(e);
         } finally {
@@ -137,6 +133,5 @@ public class JdbcMemberRepository implements MemberRepository {
         }
     }
     private void close(Connection conn) throws SQLException {
-        DataSourceUtils.releaseConnection(conn, dataSource);
-    }
+        DataSourceUtils.releaseConnection(conn, dataSource); }
 }
