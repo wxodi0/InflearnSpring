@@ -24,6 +24,10 @@ public class SpringConfig {
 
     @Bean
     public MemberRepository memberRepository() {
+<<<<<<< HEAD
+=======
+        //구현체 변경. OCP ( open-closed Principle) 확장에는 열려있고  수정 변경에는 닫혀있다.
+>>>>>>> 9543731 (Add testCase in MemberServiceIntegration)
 // return new MemoryMemberRepository();
         return new JdbcMemberRepository(dataSource);
     }
