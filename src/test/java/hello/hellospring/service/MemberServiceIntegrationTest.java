@@ -15,8 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-@Transactional
+
 @SpringBootTest
+@Transactional
 class MemberServiceIntegration {
     @Autowired MemberService memberService;
     @Autowired MemberRepository memberRepository;
@@ -25,7 +26,7 @@ class MemberServiceIntegration {
     void join() {
         //given
         Member member = new Member();
-        member.setName("spring11");
+        member.setName("spring1");
 
         //when
         Long saveId = memberService.join(member);
