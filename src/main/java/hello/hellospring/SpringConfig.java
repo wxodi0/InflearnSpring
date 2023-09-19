@@ -3,6 +3,7 @@ package hello.hellospring;
 import hello.hellospring.repository.JdbcMemberRepository;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
+import hello.hellospring.repository.jdbcTemplateMemberRepositroy;
 import hello.hellospring.service.MemberService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +26,8 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepository() {
         //구현체 변경. OCP ( open-closed Principle) 확장에는 열려있고  수정 변경에는 닫혀있다.
-// return new MemoryMemberRepository();
-        return new JdbcMemberRepository(dataSource);
+        // return new MemoryMemberRepository();
+        //        return new JdbcMemberRepository(dataSource);
+        return new jdbcTemplateMemberRepositroy(dataSource);
     }
 }
