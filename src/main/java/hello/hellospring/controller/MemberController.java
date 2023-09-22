@@ -14,10 +14,10 @@ import java.util.List;
 public class MemberController {
 
     //setter 주입
-    private MemberService memberService;
+    private final MemberService memberService;
 
     @Autowired
-    public void MemberController(MemberService memberService) {
+    public MemberController(MemberService memberService) {
         this.memberService = memberService;
     }
 
