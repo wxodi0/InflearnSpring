@@ -9,19 +9,17 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import javax.sql.DataSource;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public class jdbcTemplateMemberRepositroy implements MemberRepository {
+public class JdbcTemplateMemberRepositroy implements MemberRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public jdbcTemplateMemberRepositroy(DataSource dataSource) {
+    public JdbcTemplateMemberRepositroy(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
